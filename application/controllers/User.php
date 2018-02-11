@@ -4,12 +4,12 @@ class User extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('user_model');
-        $this->load->model('user_type_model');
+        $this->load->model('User_model');
+        $this->load->model('User_type_model');
     }
     public function index()
     {
-        $users = $this->user_model->getUser();
+        $users = $this->User_model->getUser();
         $data = array(
             'users' => $users
         );
@@ -19,7 +19,7 @@ class User extends CI_Controller
     }
     public function show($userID = "")
     {
-        $user = $this->user_model->getUserByID($userID);
+        $user = $this->User_model->getUserByID($userID);
         $data = [
            'user' => $user->row()
        ];
@@ -33,7 +33,7 @@ class User extends CI_Controller
     }
     public function edit($userID)
     {
-        $user = $this->user_model->getUserByID($userID);
+        $user = $this->User_model->getUserByID($userID);
         $data = [
            'user' => $user->row()
        ];
@@ -44,7 +44,7 @@ class User extends CI_Controller
     public function update($userID)
     {
         $user = $this->input->post();
-        $result = $this->user_model->update($userID, $user);
+        $result = $this->User_model->update($userID, $user);
         if ($result) {
             redirect('/user');
         } else {
@@ -53,7 +53,7 @@ class User extends CI_Controller
     }
     public function addUser()
     {
-        $user_types = $this->user_type_model->getUserType();
+        $user_types = $this->User_type_model->getUserType();
         $data = [
             'user_types' => $user_types
         ];
@@ -64,7 +64,7 @@ class User extends CI_Controller
     public function create()
     {
         $data = $this->input->post();
-        $result = $this->user_model->insertUser($data);
+        $result = $this->User_model->insertUser($data);
         if ($result) {
             redirect('/user');
         } else {
@@ -73,7 +73,7 @@ class User extends CI_Controller
     }
     public function delete($userID)
     {
-        $result = $this->user_model->delete($userID);
+        $result = $this->User_model->delete($userID);
         if ($result) {
             redirect('/user');
         } else {
