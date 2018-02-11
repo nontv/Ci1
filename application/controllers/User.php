@@ -27,6 +27,11 @@ class User extends CI_Controller
         $this->load->view('user/show', $data);
         $this->load->view('layout/footer');
     }
+    public function profile(Type $var = null)
+    {
+        echo "User nane login ";
+    }
+
     public function edit($userID = "")
     {
         $user = $this->user_model->getUserByID($userID);
