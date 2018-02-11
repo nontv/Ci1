@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2018 at 10:44 AM
+-- Generation Time: Feb 10, 2018 at 10:38 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.0.26
 
@@ -30,10 +30,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
-  `user_type_id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `pic` varchar(100) NOT NULL,
   `fullname` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `age` int(11) NOT NULL,
@@ -45,11 +41,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_type_id`, `username`, `password`, `pic`, `fullname`, `email`, `age`, `created_at`, `updated_at`) VALUES
-(20, 0, 'add', '1234', '', 'name', 'non@gmail.com', 20, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(21, 0, 'two', '1234', '', 'non', 'non@gmail.com', 15, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(23, 0, 'you', '1234', '', 'youlike', 'youlike@gmail.com', 20, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(24, 0, 'pop', '1234', '', 'pop', 'pop@hotmail.com', 20, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `users` (`user_id`, `fullname`, `email`, `age`, `created_at`, `updated_at`) VALUES
+(13, 'non', 'nontv@gmail.com', 20, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -68,8 +61,7 @@ CREATE TABLE `user_types` (
 
 INSERT INTO `user_types` (`user_type_id`, `name`) VALUES
 (1, 'admin'),
-(2, 'user'),
-(3, 'barned');
+(2, 'user');
 
 --
 -- Indexes for dumped tables
@@ -95,13 +87,13 @@ ALTER TABLE `user_types`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user_types`
 --
 ALTER TABLE `user_types`
-  MODIFY `user_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
